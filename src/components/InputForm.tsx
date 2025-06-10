@@ -1,5 +1,5 @@
 import { Box, Button, TextField } from '@mui/material';
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form';
 
 interface InputFormProps {
@@ -11,7 +11,7 @@ export const InputForm = ({onSubmit}: InputFormProps) => {
   const {register, handleSubmit, formState: { errors }, watch} = useForm();
   const watchSequenceFirst = watch('seq1');
   const watchSequenceSecond = watch('seq2');
-  const isLengthEqual = watchSequenceFirst?.length === watchSequenceSecond.length;
+  const isLengthEqual = watchSequenceFirst?.length === watchSequenceSecond?.length;
   const errorFirstCondition = !!errors.seq1;
   const errorSecondCondition = !!errors.seq2 || (watchSequenceFirst && watchSequenceSecond && !isLengthEqual);
   const helperTextForFirstTextArea = errors.seq1 
@@ -29,7 +29,6 @@ export const InputForm = ({onSubmit}: InputFormProps) => {
     }
   }
   
-
   return (
     <Box 
       component="form" 
