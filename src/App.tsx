@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import { Container, Typography } from '@mui/material';
 import { InputForm } from './components/InputForm';
 import AlignedResult from './components/AlignedResult';

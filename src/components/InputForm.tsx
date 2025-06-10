@@ -21,7 +21,7 @@ export const InputForm = ({onSubmit}: InputFormProps) => {
     ? 'Последовательности должны быть одинаковой длины' 
     : (errors.seq2 ? 'Неверный формат' : '');
 
-  const validateSquence = (value: string) => regexTemplate.test(value);
+  const validateSequence = (value: string) => regexTemplate.test(value);
 
   const localSabmit = (data: any) => {
     if (isLengthEqual) {
@@ -41,17 +41,19 @@ export const InputForm = ({onSubmit}: InputFormProps) => {
     >
       <TextField
         label="Аминокислотная последовательность №1"
-        {...register('seq1', {required: true, validate: validateSquence})}
+        {...register('seq1', {required: true, validate: validateSequence})}
         error={errorFirstCondition}
         helperText={helperTextForFirstTextArea}
+        color='secondary'
       />
       <TextField
         label="Аминокислотная последовательность №2"
-        {...register('seq2', {required: true, validate: validateSquence})}
+        {...register('seq2', {required: true, validate: validateSequence})}
         error={errorSecondCondition}
         helperText={helperTextForSecondTextArea}
+        color='secondary'
       />
-      <Button type='submit' variant='contained'>
+      <Button type='submit' variant='contained' color='success'>
         Визуализировать выравнивание
       </Button>
     </Box>
